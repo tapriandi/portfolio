@@ -1,0 +1,88 @@
+header, footer {
+  position: absolute;
+  display: flex;
+  height: 80px;
+  width: 100%;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  padding: 0 4%;
+  align-items: center;
+  justify-content: space-between;
+
+  a {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $main;
+  }
+
+  .menus, .socials {
+    a {
+      margin-left: 20px;
+      transition: .4s;
+      &:hover, .active {
+        color: $bluelight;
+        border-bottom: 1px solid $bluelight;
+      }
+    }
+  }
+
+  .to_home {
+    position: relative;
+    background: $main;
+    width: 100px;
+    height: 100px;
+    a {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      color: $white;
+      font-size: 1em;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+}
+
+.home {
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding: 80px 10% 0;
+  min-height: calc(90vh - 80px);
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+  
+  .box-text {
+    width: 46%;
+    .btn-porto {
+      margin-top: 20px;
+    }
+  }
+  .box-img {
+    width: 48%;
+    text-align: center;
+    img {
+      width: 75%;
+    }
+  }
+}
+
+#particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  canvas {
+    position: absolute;
+    z-index: -1;
+  }
+}
+

@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800;900&display=swap');
+@import './_variables.scss';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: $os;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+p, a {
+  font-size: 13px;
+}
+
+h1 {
+  font-size: 60px;
+  font-family: $ms;
+}
+h2 {
+  font-size: 30px;
+  font-family: $ms;
+}
+
+
+// --- class
+.main { color: $main; }
+.bl { color: $bluelight; }
+
+.btn-porto {
+  cursor: pointer;
+  padding: 0 30px;
+  height: 40px;
+  color: $main;
+  transition: .5s;
+  font-size: 12px;
+  font-family: $os;
+  font-weight: 700;
+  letter-spacing: .4px;
+  border: 1px solid $main;
+  text-transform: uppercase;
+  background-color: transparent;
+  &:hover {
+    color: $white;
+    background-color: $main;
+  }
+}
+
