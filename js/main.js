@@ -116,23 +116,66 @@ $('.menus a').click(function () {
   $('.menus').removeClass('open');
 })
 
-// --- scroll reveal
-
-ScrollReveal().reveal('.reveal', {
-  delay: 200,
-  interval: 100,
-  origin: 'top',
-  duration: 1000,
-  // reset: true
-});
-
 // --- backto top
+var toTop = document.getElementById("to-top");
 
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+  if (document.body.scrollTop > 2000 || document.documentElement.scrollTop > 2000) {
+    toTop.style.display = "block";
+  } else {
+    toTop.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
 
 // --- cursor animation
 
+// --- scroll reveal
+const sr = ScrollReveal({
+  origin: 'top',
+  distance: '80px',
+  duration: 2000,
+  // reset: true
+});
+
+sr.reveal('.home .box-text');
+sr.reveal('.home .box-text > a', { delay: 200 });
+sr.reveal('.home .box-img', { delay: 500 });
+sr.reveal('.home-socials a', { interval: 200 });
+
+sr.reveal('.about .about-img');
+sr.reveal('.about h2.title', { interval: 100 });
+sr.reveal('.about .about-text', { delay: 200, interval: 200 });
+sr.reveal('.about .education', { interval: 200 });
+sr.reveal('.about .education .card-edu', { interval: 200 });
+sr.reveal('.about .ability', { interval: 300 });
+sr.reveal('.about .ability .card-ability', { interval: 300 });
+
+sr.reveal('.project h2.title');
+sr.reveal('.card-project', { interval: 200 });
+
+sr.reveal('.contact h2', { delay: 200 });
+sr.reveal('.contact-wrap', { delay: 400 });
+sr.reveal('.contact-wrap .socials a', { interval: 200 });
 
 
+// /*===== MENU SHOW =====*/ 
+// const showMenu = (toggleId, navId) =>{
+//   const toggle = document.getElementById(toggleId),
+//   nav = document.getElementById(navId)
+
+//   if(toggle && nav){
+//       toggle.addEventListener('click', ()=>{
+//           nav.classList.toggle('show')
+//       })
+//   }
+// }
+// showMenu('nav-toggle','nav-menu')
 
 // /*===== ACTIVE AND REMOVE MENU =====*/
 // const navLink = document.querySelectorAll('.nav__link');   

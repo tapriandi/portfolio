@@ -54,6 +54,9 @@ footer {
   }
 }
 
+.portfolio {
+  position: relative;
+}
 
 // --- homepage
 .home {
@@ -114,7 +117,7 @@ footer {
   position: relative;
   min-height: 100vh;
   padding: 100px 12%;
-  mix-blend-mode: difference
+  mix-blend-mode: difference;
 
   &-wrap {
     display: flex;
