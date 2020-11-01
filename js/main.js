@@ -1,3 +1,4 @@
+// --- particle js
 particlesJS("particles-js", {
   "particles": {
     "number": {
@@ -104,3 +105,45 @@ particlesJS("particles-js", {
   "retina_detect": true
 });
 
+
+// --- toggle menu mobile
+$('.toggle').click(function () {
+  $(this).toggleClass('active');
+  $('.menus').toggleClass('open');
+})
+$('.menus a').click(function () {
+  $('.toggle').removeClass('active');
+  $('.menus').removeClass('open');
+})
+
+// --- scroll reveal
+
+ScrollReveal().reveal('.reveal', {
+  delay: 200,
+  interval: 100,
+  origin: 'top',
+  duration: 1000,
+  // reset: true
+});
+
+// --- backto top
+
+
+// --- cursor animation
+
+
+
+
+// /*===== ACTIVE AND REMOVE MENU =====*/
+// const navLink = document.querySelectorAll('.nav__link');   
+
+// function linkAction(){
+// /*Active link*/
+// navLink.forEach(n => n.classList.remove('active'));
+// this.classList.add('active');
+
+// /*Remove menu mobile*/
+// const navMenu = document.getElementById('nav-menu')
+// navMenu.classList.remove('show')
+// }
+// navLink.forEach(n => n.addEventListener('click', linkAction));

@@ -3,7 +3,17 @@ $ms: 'Montserrat', sans-serif;;
 $os: 'Open sans', sans-serif;
 
 // --- colors
-$black: black;
+$black: #181717;
+$black-op: rgba(0, 0, 0, 0.5);
 $white: white;
 $main: #3C8BBD;
+$main-op: rgba(60, 139, 189, 0.9);
 $bluelight: #BDD5E6;
+$bluelight-op: rgba(189, 213, 230, 0.8);
+$gray: #b6afaf;
+
+// --- transition
+$jelly: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+// --- shadow
+$shadow: 0 0 10px $gray;
