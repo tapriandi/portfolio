@@ -56,6 +56,7 @@ footer {
 
 .portfolio {
   position: relative;
+  overflow: hidden;
 }
 
 // --- homepage
@@ -115,9 +116,9 @@ footer {
 // --- about
 .about {
   position: relative;
+  overflow: hidden;
   min-height: 100vh;
   padding: 100px 12%;
-  mix-blend-mode: difference;
 
   &-wrap {
     display: flex;
@@ -396,6 +397,10 @@ footer {
 }
 
 @media (max-width: 780px) {
+  header {
+    position: fixed;
+  }
+  
   .home {
     flex-direction: column;
     justify-content: center;
@@ -488,7 +493,7 @@ footer {
 
     .menus {
       position: absolute;
-      display: flex;
+      display: none;
       width: 60%;
       height: 100vh;
       top: 0;
@@ -502,6 +507,7 @@ footer {
 
       &.open {
         right: -5%;
+        display: flex;
       }
 
       a {
