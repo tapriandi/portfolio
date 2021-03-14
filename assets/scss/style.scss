@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  // cursor: none;
+  cursor: none;
 }
 
 :root {
@@ -17,7 +17,7 @@
 }
 
 body {
-  overflow-y: hidden;
+  overflow-x: hidden;
   font-weight: 100;
   font-family: var(--poppins);
   letter-spacing: 1px;
@@ -100,6 +100,10 @@ header {
         font-family: var(--codystar);
         border-color: var(--white);
       }
+
+      &:hover, &:active {
+        border-color: var(--white);
+      }
     }
 
     &.active {
@@ -113,8 +117,77 @@ header {
   }
 }
 
+.overlay {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: .6s;
+  background: rgba(0, 0, 0, 0.8);
+
+  &.active {
+    width: 50%;
+    left: 50%;
+  }
+}
+
+footer {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 2;
+  padding: 20px 6%;
+  transform: translateY(-100%);
+
+  p {
+    position: relative;
+    font-size: 10px;
+    z-index: 2;
+    color: var(--white);
+    letter-spacing: 2px;
+    font-weight: 100;
+  }
+
+  &.footer-about {
+    .overlay {
+      display: none;
+    }
+  }
+
+  &.footer-project {
+    position: relative;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 780px) {
+  footer {
+    &.footer-about {
+      position: relative;
+      transform: translateY(0);
+
+      .overlay {
+        display: block;
+      }
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+
+  .cursor-small, .cursor-large {
+    display: none;
+  }
+}
+
+
+// ---------------------------------------
 .homepage {
   position: relative;
+  overflow: hidden;
   width: 100%;
   height: 100vh;
 
@@ -166,52 +239,30 @@ header {
   }
 }
 
-.overlay {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: .6s;
-  background: rgba(0, 0, 0, 0.8);
 
-  &.active {
-    width: 50%;
-    left: 50%;
-  }
-}
-
-footer {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 2;
-  padding: 20px 6%;
-  transform: translateY(-100%);
-
-  p {
-    font-size: 10px;
-    color: var(--white);
-    letter-spacing: 2px;
-    font-weight: 100;
-  }
-}
-
+// ---------------------------------------
 .about {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 
   .mapouter {
+    position: relative;
     width: 100%;
     height: 100%;
     transition: .5s;
+    text-align: right;
+
 
     .gmap_canvas, iframe  {
       position: relative;
       width: 100%;
-      height: 100%;
+      height: 100vh;
+    }
+
+    .gmap_canvas {
+      overflow: hidden;
+      background: none !important;
     }
 
     &.active {
@@ -233,8 +284,9 @@ footer {
     justify-content: center;
     
     .wrap {
+      position: relative;
       width: 40%;
-      padding: 10% 5%;
+      margin: 10% 5%;
       text-align: center;
 
       &.hide {
@@ -251,39 +303,177 @@ footer {
         }
       }
 
-      button {
-        outline: none;
-        border: none;
-        padding: 10px 20px;
-        margin: 20px;
-        color: var(--white);
-        font-size: 12px;
-        border-radius: 20px;
-        border: 1px solid var(--white);
-        background-color: transparent;
+      .contacts {
+        margin: 30px 0;
 
-        .close {
-          display: none;
-        }
-        .open {
+        a {
           display: block;
-        }
-
-        &.active {
-          color: var(--black);
-          background-color: var(--white);
-
-          .open {
-            display: none;
-          }
-          .close {
-            display: block;
-          }
+          color: var(--white);
+          padding: 6px 0;
         }
       }
     }
   }
 }
+
+
+// ---------------------------------------
+.projects {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--black);
+
+  h2 {
+    width: 100%;
+    color: var(--white);
+    padding: 150px 0 80px;
+    text-align: center;
+    font-size: 5rem;
+  }
+
+  .container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-bottom: 100px;
+  }
+
+  .card-project {
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding: 50px 0;
+
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    p {
+      color: var(--white);
+      font-size: 14px;
+
+      &.title {
+        font-size: 20px;
+        font-weight: 600;
+        padding-bottom: 20px;
+      }
+    }
+
+    .box-img {
+      width: 40%;
+      height: 300px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    .box-desc {
+      width: 60%;
+      padding: 20px;
+    }
+
+    .box-tech {
+      padding-top: 20px;
+      .mybtn {
+        margin: 5px;
+      }
+    }
+  }
+}
+
+
+// ---------------------------------------
+.mybtn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 20px;
+  color: var(--white);
+  font-size: 12px;
+  border-radius: 20px;
+  border: 1px solid var(--white);
+  background-color: transparent;
+
+  .close {
+    display: none;
+  }
+  .open {
+    display: block;
+  }
+
+  &.active {
+    color: var(--black);
+    background-color: var(--white);
+
+    .open {
+      display: none;
+    }
+    .close {
+      display: block;
+    }
+  }
+}
+
+
+// ---------------------------------------
+@media (max-width: 780px) {
+  .about {
+    .mapouter {
+      .gmap_canvas, iframe  {
+        height: 50vh;
+      }
+    }
+
+    .overlay {
+      height: calc(100% - 50vh);
+    }
+
+    &-content {
+      position: relative;
+      flex-direction: column;
+      .wrap {
+        width: 90%;
+        height: auto;
+        margin-bottom: 100px;
+
+        &.about-me {
+          margin-top: 150px;
+        }
+
+        .open-maps {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .projects {
+    h2 {
+      font-size: 2rem;
+    }
+    .card-project {
+      flex-direction: column !important;
+
+      .box-img {
+        width: 100%;
+        height: 40vh;
+      }
+
+      .box-desc {
+        width: 100%;
+        padding: 30px 0;
+      }
+    }
+
+  }
+}
+
 
 // --- cursor animation
 .cursor-small, .cursor-large {
@@ -298,8 +488,8 @@ footer {
 }
 
 .cursor-small {
-  height: .5rem;
-  width: .5rem;
+  height: 1rem;
+  width: 1rem;
   transition: all .02s;
   background-color: var(--white);
 }
